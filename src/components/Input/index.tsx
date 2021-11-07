@@ -9,7 +9,7 @@ import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
+function Input({ name, Icon, ...rest }: PInput) {
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -24,7 +24,10 @@ const Input = ({ name, icon: Icon, ...rest }) => {
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
 
-    setIsFilled(!!inputRef.current?.value);
+    const current = inputRef.current as any;
+    const value = !!current.value;
+    
+    setIsFilled(value);
   }, []);
 
   useEffect(() => {
@@ -42,8 +45,8 @@ const Input = ({ name, icon: Icon, ...rest }) => {
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        defaultValue={defaultValue}
         ref={inputRef}
+        defaultValue={defaultValue}
         {...rest}
       />
     </Container>
