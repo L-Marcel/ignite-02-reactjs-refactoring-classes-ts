@@ -1,4 +1,5 @@
 {
+  "translatedDescription": "Segundo desafio complementar realizado na trilha do React.js. Tem como objetivo colocar em prática o processo de converter uma aplicação desenvolvida inicialmente com JavaScript e Class Components para TypeScript e Functional Components.",
   "technologies": [
     "React.js",
     "HTML",
